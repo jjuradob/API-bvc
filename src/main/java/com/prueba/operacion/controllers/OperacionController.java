@@ -21,7 +21,7 @@ public class OperacionController {
 	@Autowired
 	OperacionService operacionService;
 	
-	@CrossOrigin(origins = "http://localhost:8080/operacion/query?plataforma=")
+	@CrossOrigin(origins = "http://35.222.144.110")
 	@GetMapping
 	public ArrayList<OperacionModel> obtenerOperaciones(){
 		return operacionService.obtenerOperaciones();
@@ -32,6 +32,7 @@ public class OperacionController {
 		return this.operacionService.guardarOperacion(operacion);	
 	}
 	
+	@CrossOrigin(origins = "http://35.222.144.110")
 	@GetMapping("/query")
 	public ArrayList<OperacionModel> agruparOperacionesPorPlataforma(@RequestParam("plataforma") String plataforma){
 		return this.operacionService.agruparPorPlataforma(plataforma);
